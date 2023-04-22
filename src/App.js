@@ -1,12 +1,11 @@
 // App.js
 import React, { useState } from "react";
 import todoList from "./components/TodoList";
-import ButtonPanel from "./components/ButtonPanel";
-import BodyHandler from "./components/BodyHandler";
+import LeftBodySite from "./components/LeftSide/LeftBodySite";
 import "./App.css";
 
 const App = () => {
-  const [notes, setNotes] = useState(todoList);
+  const [notes, setNotes] = useState([]);
   const [headTrigger, setHeadTrigger] = useState("All notes");
 
   const handleTodayClick = () => {
@@ -28,12 +27,19 @@ const App = () => {
 
   return (
     <div>
-      <ButtonPanel
-        todoButton={handleAddToDo}
-        weeklyButton={handleWeeklyClick}
-        todayButton={handleTodayClick}
-      />
-      <BodyHandler headTrigger={headTrigger} notes={notes} />
+      <LeftBodySite
+        buttonName={"Today"}
+        titleValue={"Today ToDo"}
+        onClick={handleTodayClick}
+      >
+        {notes.map((note, index) => (
+          <p key={index}>{note.text}</p>
+        ))}
+      </LeftBodySite>
+      <LeftBodySite
+        buttonName={"Second"}
+        titleValue={"Second Title"}
+      ></LeftBodySite>
     </div>
   );
 };

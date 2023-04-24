@@ -46,10 +46,9 @@ const App = () => {
     setNotes((notes) => [...notes, newToDo]);
   };
 
-  const handleInputTextChange = (e) => {
+  const handleInput = (e) => {
     setInputText(e.target.value);
   };
-
   return (
     <div className="container">
       <LeftBodySite
@@ -70,6 +69,7 @@ const App = () => {
         selectedDate={selectedDate}
         onSelectedDateChange={handleDateChange}
         onClick={handleOnClick}
+        handleInputTextChange={handleInput}
       >
         {notes.map((note, index) => (
           <p key={index}>{note.text}</p>

@@ -4,7 +4,8 @@ const DateInput = ({
   selectedDate,
   onSelectedDateChange,
   inputText,
-  onInputTextChange,
+
+  handleInputChange,
 }) => {
   return (
     <div className="dateInput">
@@ -13,7 +14,7 @@ const DateInput = ({
         type="text"
         id="input-text"
         value={inputText}
-        onChange={onInputTextChange}
+        handleInputChange={handleInputChange}
       />
       <label htmlFor="date-picker">Datum auswählen: </label>
       <input

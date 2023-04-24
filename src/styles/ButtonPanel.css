@@ -1,0 +1,19 @@
+.button-left {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-left:hover {
+  background-color: #007099;
+}

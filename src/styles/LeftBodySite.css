@@ -1,0 +1,27 @@
+.left-body-site {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left-body-site button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.left-body-site button:hover {
+  background-color: #45a049;
+}

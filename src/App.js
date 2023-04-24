@@ -51,32 +51,36 @@ const App = () => {
   };
   return (
     <div className="container">
-      <LeftBodySite
-        buttonName={"Today"}
-        titleValue={"Today ToDo"}
-        onClick={handleTodayClick}
-      ></LeftBodySite>
-      <LeftBodySite
-        buttonName={"This week"}
-        titleValue={"Weekly ToDo"}
-        onClick={handleWeeklyClick}
-      ></LeftBodySite>
-      <Output
-        titleValue={headTrigger}
-        btnName={btnName}
-        showAddNoteBtn={showAddNoteBtn}
-        showAddNoteBtnWeekly={showAddNoteBtnWeekly}
-        selectedDate={selectedDate}
-        onSelectedDateChange={handleDateChange}
-        onClick={handleOnClick}
-        handleInputTextChange={handleInput}
-      >
-        {notes.map((note, index) => (
-          <p key={index}>
-            {note.text} {note.date}
-          </p>
-        ))}
-      </Output>
+      <div className="left-side">
+        <LeftBodySite
+          buttonName={"Today"}
+          titleValue={"Today ToDo"}
+          onClick={handleTodayClick}
+        ></LeftBodySite>
+        <LeftBodySite
+          buttonName={"This week"}
+          titleValue={"Weekly ToDo"}
+          onClick={handleWeeklyClick}
+        ></LeftBodySite>
+      </div>
+      <div className="right-side">
+        <Output
+          titleValue={headTrigger}
+          btnName={btnName}
+          showAddNoteBtn={showAddNoteBtn}
+          showAddNoteBtnWeekly={showAddNoteBtnWeekly}
+          selectedDate={selectedDate}
+          onSelectedDateChange={handleDateChange}
+          onClick={handleOnClick}
+          handleInputTextChange={handleInput}
+        >
+          {notes.map((note, index) => (
+            <p key={index}>
+              {note.text} {note.date}
+            </p>
+          ))}
+        </Output>
+      </div>
     </div>
   );
 };

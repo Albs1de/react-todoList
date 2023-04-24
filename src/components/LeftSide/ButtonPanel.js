@@ -1,7 +1,11 @@
+import "../../styles/ButtonPanel.css";
+
 const ButtonLeft = ({ onClick, children }) => {
   return (
     <>
-      <button onClick={onClick}>{children}</button>
+      <button className="button-left" onClick={onClick}>
+        {children}
+      </button>
     </>
   );
 };

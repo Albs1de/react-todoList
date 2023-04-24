@@ -3,7 +3,7 @@ import LeftTitle from "./TitlePanelLeft";
 
 const LeftBodySite = ({ titleValue, buttonName, onClick, children }) => {
   return (
-    <div className="leftSide">
+    <div className="LeftBodySite">
       <LeftTitle>{titleValue}</LeftTitle>
       <ButtonLeft onClick={onClick}>{buttonName}</ButtonLeft> {children}
     </div>

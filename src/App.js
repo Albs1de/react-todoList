@@ -2,44 +2,79 @@
 import React, { useState } from "react";
 import todoList from "./components/TodoList";
 import LeftBodySite from "./components/LeftSide/LeftBodySite";
+
 import "./App.css";
+import Output from "./components/RightSide/Output";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
   const [headTrigger, setHeadTrigger] = useState("All notes");
+  const [showAddNoteBtn, setShowAddBtn] = useState(false);
+  const [showAddNoteBtnWeekly, setShowAddBtnWeekly] = useState(false);
+  const [selectedDate, onSelectedDateChange] = useState("");
+  const [btnName, setBtnName] = useState("");
+  const [inputText, setInputText] = useState("");
 
   const handleTodayClick = () => {
     const importantNotes = todoList.filter((note) => note.date === "today");
     setNotes(importantNotes);
-    setHeadTrigger("Today notes");
+    setHeadTrigger("Today Todo");
+    setShowAddBtn(true);
+    setShowAddBtnWeekly(false);
+    setBtnName("Add today note");
   };
 
   const handleWeeklyClick = () => {
     const notImportantNotes = todoList.filter((note) => note.date === "week");
     setNotes(notImportantNotes);
-
-    setHeadTrigger("This week notes");
+    setHeadTrigger("This week todo");
+    setShowAddBtn(false);
+    setShowAddBtnWeekly(true);
+    setBtnName("Add weekly todo");
   };
-  const handleAddToDo = () => {
-    const notImportantNotes = todoList.filter((note) => note.date === "month");
-    setNotes(notImportantNotes);
+
+  const handleDateChange = (event) => {
+    onSelectedDateChange(event.target.value);
+  };
+
+  const handleOnClick = () => {
+    const newToDo = {
+      text: inputText,
+      important: true,
+      date: selectedDate,
+    };
+    setNotes((notes) => [...notes, newToDo]);
+  };
+
+  const handleInputTextChange = (e) => {
+    setInputText(e.target.value);
   };
 
   return (
-    <div>
+    <div className="container">
       <LeftBodySite
         buttonName={"Today"}
         titleValue={"Today ToDo"}
         onClick={handleTodayClick}
+      ></LeftBodySite>
+      <LeftBodySite
+        buttonName={"This week"}
+        titleValue={"Weekly ToDo"}
+        onClick={handleWeeklyClick}
+      ></LeftBodySite>
+      <Output
+        titleValue={headTrigger}
+        btnName={btnName}
+        showAddNoteBtn={showAddNoteBtn}
+        showAddNoteBtnWeekly={showAddNoteBtnWeekly}
+        selectedDate={selectedDate}
+        onSelectedDateChange={handleDateChange}
+        onClick={handleOnClick}
       >
         {notes.map((note, index) => (
           <p key={index}>{note.text}</p>
         ))}
-      </LeftBodySite>
-      <LeftBodySite
-        buttonName={"Second"}
-        titleValue={"Second Title"}
-      ></LeftBodySite>
+      </Output>
     </div>
   );
 };

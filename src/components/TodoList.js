@@ -12,7 +12,7 @@ const todoList = [
   {
     text: "third text",
     important: true,
-    date: "month",
+    date: "today",
   },
 ];
 

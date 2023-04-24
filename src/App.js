@@ -72,7 +72,9 @@ const App = () => {
         handleInputTextChange={handleInput}
       >
         {notes.map((note, index) => (
-          <p key={index}>{note.text}</p>
+          <p key={index}>
+            {note.text} {note.date}
+          </p>
         ))}
       </Output>
     </div>

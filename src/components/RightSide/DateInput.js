@@ -1,10 +1,10 @@
+// DateInput.js
 import React from "react";
 
 const DateInput = ({
   selectedDate,
   onSelectedDateChange,
   inputText,
-
   handleInputChange,
 }) => {
   return (
@@ -14,7 +14,7 @@ const DateInput = ({
         type="text"
         id="input-text"
         value={inputText}
-        handleInputChange={handleInputChange}
+        onChange={handleInputChange} // Ändern Sie dies
       />
       <label htmlFor="date-picker">Datum auswählen: </label>
       <input

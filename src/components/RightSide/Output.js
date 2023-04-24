@@ -25,7 +25,7 @@ const Output = ({
           selectedDate={selectedDate}
           onSelectedDateChange={onSelectedDateChange}
           inputText={inputText}
-          onInputTextChange={handleInputTextChange}
+          handleInputChange={handleInputTextChange}
         />
       )}
       {showAddNoteBtn && <ButtonRight onClick={onClick} btnName={btnName} />}

@@ -1,4 +1,4 @@
-import todoList from "../TodoList";
+import React from "react";
 
 const DateInput = ({
   selectedDate,
@@ -8,10 +8,10 @@ const DateInput = ({
 }) => {
   return (
     <div className="dateInput">
-      <label htmlFor="text-input">Neue Todo erstellen: </label>
+      <label htmlFor="input-text">Text eingeben: </label>
       <input
         type="text"
-        id="text-input"
+        id="input-text"
         value={inputText}
         onChange={onInputTextChange}
       />

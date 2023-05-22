@@ -15,6 +15,7 @@ const Output = ({
   onClick,
   handleInputTextChange,
   inputText,
+  handleDeleteLastNote,
 }) => {
   return (
     <div className="output">
@@ -28,9 +29,10 @@ const Output = ({
           handleInputChange={handleInputTextChange}
         />
       )}
+      
       {showAddNoteBtn && <ButtonRight onClick={onClick} btnName={btnName} />}
       {showAddNoteBtnWeekly && (
-        <ButtonRight onClick={onClick} btnName={btnName} />
+        <ButtonRight onClick={handleDeleteLastNote} btnName={btnName} />
       )}
     </div>
   );
